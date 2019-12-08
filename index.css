@@ -19,27 +19,14 @@ body {
 
 .globus {
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     margin-top: 0em;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10em;
-    background: url(images/background.jpghttps://imagecache.jpl.nasa.gov/images/edu/images/imagerecords/57000/57723/globe_west_2048-640x350.jpg) fixed;
-    border: 0.1em #f9f9eb;
-}
-
-.quizArea,
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  margin: auto;
-  padding: 1em;
-  border: 0.1em rgb(86, 86, 247), solid;
-  background-color: #f9f9eb;
+    border: 0.1em#030954;
 }
 
 .header li {
