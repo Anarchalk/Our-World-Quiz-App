@@ -1,0 +1,62 @@
+body {
+    background-color: #f9f9eb;
+    font-family:'Mali', cursive; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 1px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: #030954;
+}
+
+.globus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10em;
+    background: url(images/background.jpghttps://imagecache.jpl.nasa.gov/images/edu/images/imagerecords/57000/57723/globe_west_2048-640x350.jpg) fixed;
+    border: 0.1em #f9f9eb;
+}
+
+.quizArea,
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin: auto;
+  padding: 1em;
+  border: 0.1em rgb(86, 86, 247), solid;
+  background-color: #f9f9eb;
+}
+
+.header li {
+    display: inline-block;
+    margin: 1em;
+    list-style: none;
+    font-size: 1.5em;
+  }
+
+.button {
+    padding:10px;
+    margin-top:1em;
+    background-color:rgb(25, 158, 53);
+    box-sizing: border-box;
+    border-radius: 0.2em;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Mali', cursive;
+    font-weight: 800;
+}
