@@ -35,10 +35,13 @@ body {
     border-radius: 1.3em;
 }
 
-.globus.h2 {
-    align-self: flex-end;
-}
-
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    cursor: pointer;
+  }
+  
 .header li {
     display: inline-block;
     margin: 1em;
