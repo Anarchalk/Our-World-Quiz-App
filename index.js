@@ -104,6 +104,7 @@ let STORE = [
 let score = 0;
 let numberOfQuestions = STORE.length;
 let currentQuestion = 0;
+let answerOptions= STORE[currentQuestion].answers; 
 
 //to generate current questions and show all the answers
 function generateQuestions() {
@@ -111,6 +112,7 @@ function generateQuestions() {
     if (currentQuestion < numberOfQuestions) {
         // return eachQuestion(numberOfQuestions);
         console.log(STORE[currentQuestion].question);
+        console.log(answerOptions);
         $('.innerBox').text(STORE[currentQuestion].question);
         $('.numberOfQuestions').text(10);
     } else {
@@ -120,7 +122,7 @@ function generateQuestions() {
 };
 
 function updateQuestionAndScore() {
-    const html = $(`<ul>
+    let html = $(`<ul>
         <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
         <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
       </ul>`);
