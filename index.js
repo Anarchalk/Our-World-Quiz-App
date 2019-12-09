@@ -111,14 +111,21 @@ function generateQuestions() {
     if (currentQuestion < numberOfQuestions) {
         // return eachQuestion(numberOfQuestions);
         console.log(STORE[currentQuestion].question);
-        $('.resultBox').text(STORE[currentQuestion].question);
+        $('.innerBox').text(STORE[currentQuestion].question);
         $('.numberOfQuestions').text(10);
-
     } else {
         console.log('this is the last question');
 
     }
 };
+
+function updateQuestionAndScore() {
+    const html = $(`<ul>
+        <li id="js-answered">Questions Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
+        <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
+      </ul>`);
+    $(".askIt").html(html);
+  }
 
 // funcions needed to run the app
 function handleQuiz() {
