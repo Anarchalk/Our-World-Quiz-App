@@ -1,6 +1,6 @@
 let STORE = [
     {
-        question: 'How many continenets are there in the world?',
+        question: 'How many continents are there in the world?',
         answers: [
             'There are 8 continents',
             'There are 6 continents',
