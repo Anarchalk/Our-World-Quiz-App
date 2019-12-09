@@ -56,18 +56,18 @@ let STORE = [
             'Burning fossil fuel and coal',
             'Oil and gas',
             'All of the above'
-        ], 
+        ],
         correctAnswer: 'All of the above'
     },
     {
-        question:'Where does most of the world's oxygen come from?',
+        question: 'Where does most of the world\'s oxygen come from?',
         answers: [
             'Forest',
             'Ocean',
             'Plankton',
             'Fossil fuel'
         ],
-        correctAnswer: 'Plankton that are plants, known as phytoplankton, grow and get their own energy through photosynthesis and are responsible for producing an estimated 80% of the world's oxygen.'
+        correctAnswer: 'Plankton that are plants, known as phytoplankton, grow and get their own energy through photosynthesis and are responsible for producing an estimated 80% of the world\'s oxygen.'
     },
     {
         question: 'What is the largest desert in the world?',
@@ -80,9 +80,9 @@ let STORE = [
         correctAnswer: ' Antarctic Desert covers 5,500,000 square miles and it is the largest desert in the world. Located around the South Pole, it is the driest, windiest, and coldest continent on earth.'
     },
     {
-        question:'What are the matriarchial societies?',
+        question: 'What are the matriarchial societies?',
         answers: [
-            'Bribri-Costa Rica, Khasi-India' ,
+            'Bribri-Costa Rica, Khasi-India',
             'Mosuo-China, Minangkabau-Indonesia',
             'Umoja-Kenya, Akan-Ghana',
             'All of the above'
@@ -99,5 +99,32 @@ let STORE = [
         ],
         correctAnswer: 'Saudi Arabia'
     },
-
 ];
+
+let score = 0;
+let numberOfQuestions = STORE.length;
+let currentQuestion = 0;
+
+//to generate current questions and show all the answers
+function generateQuestions() {
+    //if the current question is the last one, do that
+    if (currentQuestion < numberOfQuestions) {
+        // return eachQuestion(numberOfQuestions);
+        console.log(STORE[currentQuestion].question);
+        $('.resultBox').text(STORE[currentQuestion].question);
+        $('.numberOfQuestions').text(10);
+
+    } else {
+        console.log('this is the last question');
+
+    }
+};
+
+// funcions needed to run the app
+function handleQuiz() {
+    // startQuiz();
+    generateQuestions();
+    // submitAnswer();
+    // restartQuiz();
+}
+$(handleQuiz);
