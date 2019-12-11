@@ -2,33 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Html & Css">
-    <title>Quiz App</title>
-    <link href="https://fonts.googleapis.com/css?family=Jua|Mali&display=swap" rel="stylesheet">
-    <link href="index.css" rel="stylesheet" type="text/css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Html & Css">
+	<title>Quiz App</title>
+	<link href="https://fonts.googleapis.com/css?family=Jua|Mali&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" src="index.css" type="text/css" />
+    
 </head>
 
 <body>
-    <main role="main" class="container">
-        <header class="header">
-            <h1>What Do We Know About Our Planet?</h1>
-            <ul>
-                <li class="askIt">Question:<span class="numberOfQuestions">0</span>/10</li>
+	<main role="main" class="container">
+		<header role="banner" class="header">
+			<h1>What Do We Know About Our Planet?</h1>
+			<ul>
+				<li class="askIt">Question:<span class="numberOfQuestions">0</span>/10</li>
                 <li class="askIt">Score:<span class="score">0</span> </li>
             </ul>
         </header>
         <section role="globe" class="globus">
-            <section role= "inner" class="innerBox"></section>
+            <section class="startQuiz">
+            <h2>Let's find it out!</h2>
                 <button type="button" class="startButton">Start</button> 
-            </section>
-            <section class = "resultBox"></section>
-            <section class = "finalResultBox"></section>
+            </section> 
+            <section class= "questionBox boxEs"></section>
+            <section class = "resultBox boxEs"></section>
+            <section class = "finalResultBox boxEs"></section>
         </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="index.js"></script>
 </body>
 
-</html> 
+</html>
