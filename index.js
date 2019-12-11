@@ -105,6 +105,7 @@ let score = 0;
 let numberOfQuestions = STORE.length;
 let currentQuestion = 0;
 let answerOptions= STORE[currentQuestion].answers; 
+let correctAnswer= STORE[currentQuestion].correctAnswer;  
 
 //to generate current questions and show all the answers
 function generateQuestions() {
@@ -112,8 +113,11 @@ function generateQuestions() {
     if (currentQuestion < numberOfQuestions) {
         // return eachQuestion(numberOfQuestions);
         console.log(STORE[currentQuestion].question);
-        console.log(answerOptions);
+        // console.log(answerOptions);
         $('.innerBox').text(STORE[currentQuestion].question);
+        STORE[currentQuestion].answers.forEach((answer) => {
+            $('.innerBox').append(`<p>${answer}</p><br>`);
+        }) 
         $('.numberOfQuestions').text(10);
     } else {
         console.log('this is the last question');
