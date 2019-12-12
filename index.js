@@ -111,7 +111,7 @@ $(document).ready(function () {
     let correctAnswer = STORE[currentQuestion].correctAnswer;
 
     $('.questionBox').on("click", '.check', function () {
-        console.log('ansSumbit');
+        //console.log('ansSumbit');
         console.log('STORE[currentQuestion-1].correctAnswer', STORE[currentQuestion - 1].correctAnswer);
         console.log('$(name=["ans"]).val()', $('input[name=ans]').val());
         if (STORE[currentQuestion - 1].correctAnswer.includes($('input[name=ans]:checked').val())) {
@@ -163,9 +163,13 @@ function generateQuestions() {
         // STORE[currentQuestion].answers.forEach((answer) => {
         //     //   $('.questionBox').append(`<p>${answer}</p><br>`);
         //     // })
-    
+       // console.log($('input[name=ans]:checked').val());
+
     function findAnswer (inputAnswers) {
-        let userAnswer=  answerOptions("check").val(`${answer}`);
+        let userAnswer=  answerOptions
+         console.log($('input[name=ans]:checked', '.check').val());
+
+       
 
     }
         $('.questionBox').html('<form id="question">'
