@@ -120,7 +120,7 @@ $(document).ready(function () {
     let answerOptions = STORE[currentQuestion].answers;
     let correctAnswer = STORE[currentQuestion].correctAnswer;
 
-
+    //Generate questions in questionBox
     function generateQuestions() {
         //   //if the current question is the last one, do that
         if (currentQuestion < numberOfQuestions) {
@@ -133,12 +133,24 @@ $(document).ready(function () {
             // console.log($('input[name=ans]:checked').val());
         } else {
             $('.questionBox').hide();
-            finalScore;
+            // finalScore();
             $('.questionBox').text(10);
         }
     };
 
 
+    // function to listen click for startButton and hide welcome page and show questionbox
+
+    $('.startButton').on('click', function (event) {
+        $('.startQuiz').hide();
+        $('.numberOfQuestions').text(1);
+        $('.questionBox').show();
+        generateQuestions();
+    }
+    )
+
+
+    // question and answers to show in questionbox 
     $('.questionBox').html('<form id="question">'
         + '<p>'
         + STORE[currentQuestion].question
@@ -154,30 +166,36 @@ $(document).ready(function () {
 
 
 
-$('.startButton').on('click', function (event) {
-    $('.startQuiz').hide();
-    $('.numberOfQuestions').text(1);
-    $('.questionBox').show();
-    generateQuestions();
-}
-)
+    $('.questionBox').on("click", '.check', function () {
+
+        feedBackforAnswer();
+        generateQuestions();
+
+        console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
+        $('.questionBox').show();
+        $('feedbackBox').show("${correctAnswer}");
+    });
 
 
+    $('.feedbackBox').html('<form id="moveNext">'
+        + '<button type="submit" class="nextQuestion">Next</button></form>');
+    $('.nextQuestion').hide();
 
+    function feedBackforAnswer(input) {
+        //let feedbackAnswer = STORE[currentQuestion].correctAnswer;
 
-$('.questionBox').on("click", '.check', function () {
-    //console.log('ansSumbit');
-    console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
-    console.log('$(name=["ans"]).val()', $('input[name=ans]').val());
+        if ('STORE[currentQuestion - 1].correctAnswer',correctAnswer === $("input[name='ans']:checked")[0].value) {
+            $('.feedbackBox').html(
+                `<h3>Correct!</h3>`);
 
-    //     alert("Amjilttai");
-    //     generateQuestions();
-    // } else {
-    //     alert("Buruu hariulsan bn");
-    // }
-});
+        } else {
+            $('.feedbackBox').html(
+                `<h3>Wrong!</h3>`);
+            // console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer)
 
-  
+        }
+    };
+
 
 
 
