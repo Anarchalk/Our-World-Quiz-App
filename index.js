@@ -164,18 +164,25 @@ $(document).ready(function () {
 
     //on click show feedback box 
     $('.questionBox').on("click", '.check', function () {
-        // feedBackforAnswer();
-        generateQuestions();
-        console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
-        $('.questionBox').show();
-        $('feedbackBox').show("${correctAnswer}");
-    });
+        $('input[name=ans]:checked').val();
+        console.log('testing');
+        console.log('checking');
+        feedBackforAnswer();
+        })
+  
+
+        
+      
+       // console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
+        //$('.questionBox').show();
+        //$('feedbackBox').show("${correctAnswer}");
+   
 
 
     //next buttom 
     $('.feedbackBox').html('<form id="moveNext">'
-        + '<button type="submit" class="nextQuestion">Next</button></form>');
-    $('.nextQuestion').hide();
+        + '<button type="submit" class="nextButton">Next</button></form>');
+    //$('.nextQuestion').hide();
 
 
     //feedback answer if user select correct answer show 'Correct' else show feedbackbox with text Wrong and correct answer with facts
