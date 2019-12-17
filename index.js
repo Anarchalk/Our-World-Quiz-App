@@ -122,15 +122,11 @@ $(document).ready(function () {
 
     //Generate questions in questionBox
     function generateQuestions() {
-        //   //if the current question is the last one, do that
+        
         if (currentQuestion < numberOfQuestions) {
             // return eachQuestion(numberOfQuestions);
             console.log(STORE[currentQuestion].question);
             console.log(answerOptions);
-            // STORE[currentQuestion].answers.forEach((answer) => {
-            //     //   $('.questionBox').append(`<p>${answer}</p><br>`);
-            //     // })
-            // console.log($('input[name=ans]:checked').val());
         } else {
             $('.questionBox').hide();
             // finalScore();
@@ -151,6 +147,7 @@ $(document).ready(function () {
 
 
     // question and answers to show in questionbox 
+    //radio button
     $('.questionBox').html('<form id="question">'
         + '<p>'
         + STORE[currentQuestion].question
@@ -165,26 +162,27 @@ $(document).ready(function () {
     currentQuestion = 0;
 
 
-
+    //on click show feedback box 
     $('.questionBox').on("click", '.check', function () {
-
-        feedBackforAnswer();
+        // feedBackforAnswer();
         generateQuestions();
-
         console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
         $('.questionBox').show();
         $('feedbackBox').show("${correctAnswer}");
     });
 
 
+    //next buttom 
     $('.feedbackBox').html('<form id="moveNext">'
         + '<button type="submit" class="nextQuestion">Next</button></form>');
     $('.nextQuestion').hide();
 
+
+    //feedback answer if user select correct answer show 'Correct' else show feedbackbox with text Wrong and correct answer with facts
     function feedBackforAnswer(input) {
         //let feedbackAnswer = STORE[currentQuestion].correctAnswer;
 
-        if ('STORE[currentQuestion - 1].correctAnswer',correctAnswer === $("input[name='ans']:checked")[0].value) {
+        if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer === $("input[name='ans']:checked")[0].value) {
             $('.feedbackBox').html(
                 `<h3>Correct!</h3>`);
 
