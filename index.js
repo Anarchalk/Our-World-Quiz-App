@@ -122,7 +122,7 @@ $(document).ready(function () {
 
     //Generate questions in questionBox
     function generateQuestions() {
-        
+
         if (currentQuestion < numberOfQuestions) {
             // return eachQuestion(numberOfQuestions);
             console.log(STORE[currentQuestion].question);
@@ -162,21 +162,25 @@ $(document).ready(function () {
     currentQuestion = 0;
 
 
+
     //on click show feedback box 
     $('.questionBox').on("click", '.check', function () {
-        $('input[name=ans]:checked').val();
+        let inputVal = $('input[name=ans]:checked').val();
+        let input = $('input[name=ans]:checked').val();
+        console.log('user input: ', input);
+        console.log('Value is ' + inputVal);
         console.log('testing');
         console.log('checking');
-        feedBackforAnswer();
-        })
-  
+        feedBackforAnswer(input);
+    })
 
-        
-      
-       // console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
-        //$('.questionBox').show();
-        //$('feedbackBox').show("${correctAnswer}");
-   
+
+
+
+    // console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
+    //$('.questionBox').show();
+    //$('feedbackBox').show("${correctAnswer}");
+
 
 
     //next buttom 
