@@ -119,6 +119,7 @@ $(document).ready(function () {
     let correctAnswerTotal = 0;
     let answerOptions = STORE[currentQuestion].answers;
     let correctAnswer = STORE[currentQuestion].correctAnswer;
+    let tellFacts = STORE[currentQuestion].facts;
 
     //Generate questions in questionBox
     function generateQuestions() {
@@ -184,7 +185,14 @@ $(document).ready(function () {
     //next buttom 
     $('.feedbackBox').html('<form id="moveNext">'
         + '<button type="submit" class="nextButton">Next</button></form>');
-   
+
+    $('.feedbackBox').on('click', function () {
+        $('.feedbackBox').hide();
+        $('.questionBox').show();
+        generateQuestions();
+
+    })
+
 
 
     //feedback answer if user select correct answer show 'Correct' else show feedbackbox with text Wrong and correct answer with facts
@@ -194,14 +202,16 @@ $(document).ready(function () {
         // if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer
         if (feedbackAnswer === $("input[name='ans']:checked")[0].value) {
             $('.feedbackBox').html(
-                `<h3>Correct!</h3> <br> '<button type="submit" class="nextButton">Next</button></form>'`
-                );
-                generateQuestions();
+                `<h3>Correct!</h3> <br>'<button type="submit" class="nextButton">Next</button></form>'`
+            );
+
 
         } else {
             $('.feedbackBox').html(
-                `<h3>Wrong!</h3>`);
-            // console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer)
+                `<h3>Wrong!</h3><br>'<button type="submit" class="nextButton">Next</button></form>'`
+            );
+            console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer)
+            console.log(tellFacts);
 
         }
     };
