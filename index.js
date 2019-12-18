@@ -164,14 +164,12 @@ $(document).ready(function () {
 
 
     //on click show feedback box 
-    $('.questionBox').on("click", '.check', function () {
+    $('.questionBox').on('click', '.check', function () {
         let inputVal = $('input[name=ans]:checked').val();
-        let input = $('input[name=ans]:checked').val();
-        console.log('user input: ', input);
         console.log('Value is ' + inputVal);
-        console.log('testing');
-        console.log('checking');
-        feedBackforAnswer(input);
+        fbForAnswer(inputVal);
+        $('.questionBox').hide();
+        $('.feedbackBox').show();
     })
 
 
@@ -186,16 +184,19 @@ $(document).ready(function () {
     //next buttom 
     $('.feedbackBox').html('<form id="moveNext">'
         + '<button type="submit" class="nextButton">Next</button></form>');
-    //$('.nextQuestion').hide();
+   
 
 
     //feedback answer if user select correct answer show 'Correct' else show feedbackbox with text Wrong and correct answer with facts
-    function feedBackforAnswer(input) {
-        //let feedbackAnswer = STORE[currentQuestion].correctAnswer;
+    function fbForAnswer(input) {
+        let feedbackAnswer = STORE[currentQuestion].correctAnswer;
 
-        if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer === $("input[name='ans']:checked")[0].value) {
+        // if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer
+        if (feedbackAnswer === $("input[name='ans']:checked")[0].value) {
             $('.feedbackBox').html(
-                `<h3>Correct!</h3>`);
+                `<h3>Correct!</h3> <br> '<button type="submit" class="nextButton">Next</button></form>'`
+                );
+                generateQuestions();
 
         } else {
             $('.feedbackBox').html(
