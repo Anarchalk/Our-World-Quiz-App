@@ -123,12 +123,22 @@ $(document).ready(function () {
 
     //Generate questions in questionBox
     function generateQuestions() {
-
         if (currentQuestion < numberOfQuestions) {
-            // return eachQuestion(numberOfQuestions);
-            console.log(STORE[currentQuestion].question);
+            $('.questionBox').html('<form id="question">'
+            + '<p>'
+            + STORE[currentQuestion].question
+            + '</p>'
+            + STORE[currentQuestion].answers.map((answer) => {
+                return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
+            }).join('')
+            + '<button type="button" class="check">Submit</button></form>');
+        //currentQuestion++;
+        $('.numberOfQuestions').text(currentQuestion);
+
+        console.log(STORE[currentQuestion].question);
             console.log(answerOptions);
         } else {
+            currentQuestion = 0;
             $('.questionBox').hide();
             // finalScore();
             $('.questionBox').text(10);
@@ -149,18 +159,18 @@ $(document).ready(function () {
 
     // question and answers to show in questionbox 
     //radio button
-    $('.questionBox').html('<form id="question">'
-        + '<p>'
-        + STORE[currentQuestion].question
-        + '</p>'
-        + STORE[currentQuestion].answers.map((answer) => {
-            return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
-        }).join('')
-        + '<button type="button" class="check">Submit</button></form>');
-    currentQuestion++;
-    $('.numberOfQuestions').text(currentQuestion);
+    // $('.questionBox').html('<form id="question">'
+    //     + '<p>'
+    //     + STORE[currentQuestion].question
+    //     + '</p>'
+    //     + STORE[currentQuestion].answers.map((answer) => {
+    //         return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
+    //     }).join('')
+    //     + '<button type="button" class="check">Submit</button></form>');
+    // currentQuestion++;
+    // $('.numberOfQuestions').text(currentQuestion);
     // } else {
-    currentQuestion = 0;
+    // currentQuestion = 0;
 
 
 
