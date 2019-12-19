@@ -121,6 +121,7 @@ $(document).ready(function () {
     let correctAnswer = STORE[currentQuestion].correctAnswer;
     let tellFacts = STORE[currentQuestion].facts;
 
+
     //Generate questions in questionBox
     function generateQuestions() {
         if (currentQuestion < numberOfQuestions) {
@@ -155,22 +156,6 @@ $(document).ready(function () {
         generateQuestions();
     }
     )
-
-
-    // question and answers to show in questionbox 
-    //radio button
-    // $('.questionBox').html('<form id="question">'
-    //     + '<p>'
-    //     + STORE[currentQuestion].question
-    //     + '</p>'
-    //     + STORE[currentQuestion].answers.map((answer) => {
-    //         return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
-    //     }).join('')
-    //     + '<button type="button" class="check">Submit</button></form>');
-    // currentQuestion++;
-    // $('.numberOfQuestions').text(currentQuestion);
-    // } else {
-    // currentQuestion = 0;
 
 
 
@@ -212,23 +197,23 @@ $(document).ready(function () {
         // if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer
         if (feedbackAnswer === $("input[name='ans']:checked")[0].value) {
             $('.feedbackBox').html(
-                `<h3>Correct!</h3> <br>'<button type="submit" class="nextButton">Next</button></form>'`
+                `<h3>Correct!</h3> <br><button type="submit" class="nextButton">Next</button></form>`
             );
             generateQuestions();
 
 
         } else {
             $('.feedbackBox').html(
-                `<h3>Wrong!</h3><br>'<button type="submit" class="nextButton">Next</button></form>'`
-            );
-            console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer)
-            console.log(tellFacts);
+                `<h3>Wrong!</h3><br>
+                ${STORE.facts} <br><button type="submit" class="nextButton">Next</button></form>`);
+            //console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer)
+            //console.log(tellFacts);
             generateQuestions();
 
         }
     };
 
-
+    
 
 
 
