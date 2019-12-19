@@ -125,18 +125,18 @@ $(document).ready(function () {
     function generateQuestions() {
         if (currentQuestion < numberOfQuestions) {
             $('.questionBox').html('<form id="question">'
-            + '<p>'
-            + STORE[currentQuestion].question
-            + '</p>'
-            + STORE[currentQuestion].answers.map((answer) => {
-                return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
-            }).join('')
-            + '<button type="button" class="check">Submit</button></form>');
-        //currentQuestion++;
-        $('.numberOfQuestions').text(currentQuestion);
+                + '<p>'
+                + STORE[currentQuestion].question
+                + '</p>'
+                + STORE[currentQuestion].answers.map((answer) => {
+                    return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
+                }).join('')
+                + '<button type="button" class="check">Submit</button></form>');
+            //currentQuestion++;
+            $('.numberOfQuestions').text(currentQuestion);
 
-        console.log(STORE[currentQuestion].question);
-            console.log(answerOptions);
+            // console.log(STORE[currentQuestion].question);
+            // console.log(answerOptions);
         } else {
             currentQuestion = 0;
             $('.questionBox').hide();
@@ -181,6 +181,8 @@ $(document).ready(function () {
         fbForAnswer(inputVal);
         $('.questionBox').hide();
         $('.feedbackBox').show();
+        generateQuestions();
+
     })
 
 
@@ -199,11 +201,9 @@ $(document).ready(function () {
     $('.feedbackBox').on('click', function () {
         $('.feedbackBox').hide();
         $('.questionBox').show();
+        currentQuestion++;  
         generateQuestions();
-
     })
-
-
 
     //feedback answer if user select correct answer show 'Correct' else show feedbackbox with text Wrong and correct answer with facts
     function fbForAnswer(input) {
@@ -214,6 +214,7 @@ $(document).ready(function () {
             $('.feedbackBox').html(
                 `<h3>Correct!</h3> <br>'<button type="submit" class="nextButton">Next</button></form>'`
             );
+            generateQuestions();
 
 
         } else {
@@ -222,6 +223,7 @@ $(document).ready(function () {
             );
             console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer)
             console.log(tellFacts);
+            generateQuestions();
 
         }
     };
