@@ -133,7 +133,7 @@ $(document).ready(function () {
                     return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
                 }).join('')
                 + '<button type="button" class="check">Submit</button></form>');
-            $('.numberOfQuestions').text(currentQuestion +1);
+            $('.numberOfQuestions').text(currentQuestion + 1);
 
             // console.log(STORE[currentQuestion].question);
             // console.log(answerOptions);
@@ -146,7 +146,7 @@ $(document).ready(function () {
     };
 
     //function to update Score
-    
+
 
     // function to listen click for startButton and hide welcome page and show questionbox
 
@@ -173,14 +173,17 @@ $(document).ready(function () {
     })
 
 
-//    function updateScore() {
-//         if (the selected answer is === correctAnswer) {
-//             increment score by one
-//         }else{
-//             do nothing
-//         }
-//        }
-
+    //    function updateScore() {
+    //         if (the selected answer is === correctAnswer) {
+    //             increment score by one
+    //         }else{
+    //             do nothing
+    //         }
+    //        }
+    function updateScore() {
+        score++;
+        $('.score').text(score);
+    }
 
 
     //next buttom 
@@ -204,6 +207,7 @@ $(document).ready(function () {
             $('.feedbackBox').html(
                 `<h3>Correct!</h3> <br><button type="submit" class="nextButton">Next</button></form>`
             );
+            updateScore();
             generateQuestions();
 
 
