@@ -114,17 +114,17 @@ $(document).ready(function () {
 
 
     let score = 0;
-    let numberOfQuestions = STORE.length;
+    let numbersOfQuestions = STORE.length;
     let currentQuestion = 0;
     let correctAnswerTotal = 0;
     let answerOptions = STORE[currentQuestion].answers;
     let correctAnswer = STORE[currentQuestion].correctAnswer;
-    let tellFacts = STORE[currentQuestion].facts;
+    //let tellFacts = STORE[currentQuestion].facts;
 
 
     //Generate questions in questionBox
     function generateQuestions() {
-        if (currentQuestion < numberOfQuestions) {
+        if (currentQuestion < numbersOfQuestions) {
             $('.questionBox').html('<form id="question">'
                 + '<p>'
                 + STORE[currentQuestion].question
@@ -133,8 +133,7 @@ $(document).ready(function () {
                     return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
                 }).join('')
                 + '<button type="button" class="check">Submit</button></form>');
-            //currentQuestion++;
-            $('.numberOfQuestions').text(currentQuestion);
+            $('.numberOfQuestions').text(currentQuestion +1);
 
             // console.log(STORE[currentQuestion].question);
             // console.log(answerOptions);
@@ -146,6 +145,8 @@ $(document).ready(function () {
         }
     };
 
+    //function to update Score
+    
 
     // function to listen click for startButton and hide welcome page and show questionbox
 
@@ -153,6 +154,7 @@ $(document).ready(function () {
         $('.startQuiz').hide();
         $('.numberOfQuestions').text(1);
         $('.questionBox').show();
+        $('.questionBox').append
         generateQuestions();
     }
     )
@@ -162,7 +164,7 @@ $(document).ready(function () {
     //on click show feedback box 
     $('.questionBox').on('click', '.check', function () {
         let inputVal = $('input[name=ans]:checked').val();
-        console.log('Value is ' + inputVal);
+        //console.log('Value is ' + inputVal);
         fbForAnswer(inputVal);
         $('.questionBox').hide();
         $('.feedbackBox').show();
@@ -171,11 +173,13 @@ $(document).ready(function () {
     })
 
 
-
-
-    // console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer);
-    //$('.questionBox').show();
-    //$('feedbackBox').show("${correctAnswer}");
+//    function updateScore() {
+//         if (the selected answer is === correctAnswer) {
+//             increment score by one
+//         }else{
+//             do nothing
+//         }
+//        }
 
 
 
@@ -186,15 +190,16 @@ $(document).ready(function () {
     $('.feedbackBox').on('click', function () {
         $('.feedbackBox').hide();
         $('.questionBox').show();
-        currentQuestion++;  
+        currentQuestion++;
         generateQuestions();
     })
+
 
     //feedback answer if user select correct answer show 'Correct' else show feedbackbox with text Wrong and correct answer with facts
     function fbForAnswer(input) {
         let feedbackAnswer = STORE[currentQuestion].correctAnswer;
 
-        // if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer
+        //  if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer
         if (feedbackAnswer === $("input[name='ans']:checked")[0].value) {
             $('.feedbackBox').html(
                 `<h3>Correct!</h3> <br><button type="submit" class="nextButton">Next</button></form>`
@@ -205,15 +210,12 @@ $(document).ready(function () {
         } else {
             $('.feedbackBox').html(
                 `<h3>Wrong!</h3><br>
-                ${STORE.facts} <br><button type="submit" class="nextButton">Next</button></form>`);
-            //console.log('STORE[currentQuestion-1].correctAnswer', correctAnswer)
-            //console.log(tellFacts);
+                ${STORE[currentQuestion].facts} <br><button type="submit" class="nextButton">Next</button></form>`);
             generateQuestions();
 
         }
     };
 
-    
 
 
 
