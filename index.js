@@ -119,8 +119,8 @@ $(document).ready(function () {
     let correctAnswerTotal = 0;
     let answerOptions = STORE[currentQuestion].answers;
     let correctAnswer = STORE[currentQuestion].correctAnswer;
-   // let popped = STORE[question].pop();
-       // console.log(popped);
+    // let popped = STORE[question].pop();
+    // console.log(popped);
 
     //let tellFacts = STORE[currentQuestion].facts;
 
@@ -148,8 +148,8 @@ $(document).ready(function () {
         }
     };
 
-    
-             
+
+
 
 
     // function to listen click for startButton and hide welcome page and show questionbox
@@ -158,7 +158,7 @@ $(document).ready(function () {
         $('.startQuiz').hide();
         $('.numberOfQuestions').text(1);
         $('.questionBox').show();
-        $('.questionBox').append
+        //$('.questionBox').append
         generateQuestions();
     }
     )
@@ -199,6 +199,7 @@ $(document).ready(function () {
         $('.questionBox').show();
         currentQuestion++;
         generateQuestions();
+        
     })
 
 
@@ -214,6 +215,7 @@ $(document).ready(function () {
             );
             updateScore();
             generateQuestions();
+            showRestartView();
 
 
         } else {
@@ -221,8 +223,8 @@ $(document).ready(function () {
                 `<h3>Wrong!</h3><br>
                 ${STORE[currentQuestion].facts} <br><button type="submit" class="nextButton">Next</button></form>`);
             generateQuestions();
-
-        }
+            showRestartView();
+            }
     };
 
     //Restart button
@@ -230,23 +232,19 @@ $(document).ready(function () {
         <form id="reStart">
         + <button type="submit" class="reStart">Restart</button></form>`);
 
-    
+
     //user comes to the last question 10/10 then show finalResultBox 
     function showRestartView() {
-        $('.feedbackBox').on('click','.nextButton', (event) => {
-            if (STORE.currentQuestion == STORE[question.length -1]) {
+        $('.feedbackBox').on('click', '.nextButton', (event) => {
+            if (currentQuestion === numbersOfQuestions) {
                 $('.finalResultBox').show();
-
-            }else {
-
+                $('.feedbackBox').hide();
             }
-          //STORE.currentQuestion == STORE.questions.length?updateScore(' ') : generateQuestions();
-          //console.log(showRestartView);
         });
-        //console.log(showRestartView);
-      }    
-    
-   
+    }
+
+
+
 
 })
 
