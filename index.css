@@ -72,7 +72,13 @@ body {
   font-weight: 800;
 }
 
+.startButton:hover {background-color: #3d8840}
 
+.startButton:active {
+  background-color: #8dbe8f;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
 .nextButton, .reStart, .check {
   background-color: rgb(34, 37, 51);
   border: none;

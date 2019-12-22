@@ -230,7 +230,7 @@
 
     function resetScores() {
         score = 0;
-        numbersOfQuestions = 0;
+        currentQuestion = 0;
         $('.score').text(0);
         $('.questionBox').text(0);
     }
