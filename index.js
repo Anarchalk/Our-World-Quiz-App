@@ -1,4 +1,4 @@
-$(document).ready(function () {
+
     let STORE = [
         {
             question: 'How many continents are there in the world?',
@@ -119,10 +119,6 @@ $(document).ready(function () {
     let correctAnswerTotal = 0;
     let answerOptions = STORE[currentQuestion].answers;
     let correctAnswer = STORE[currentQuestion].correctAnswer;
-    // let popped = STORE[question].pop();
-    // console.log(popped);
-
-    //let tellFacts = STORE[currentQuestion].facts;
 
 
     //Generate questions in questionBox
@@ -137,28 +133,21 @@ $(document).ready(function () {
                 }).join('')
                 + '<button type="button" class="check">Submit</button></form>');
             $('.numberOfQuestions').text(currentQuestion + 1);
-
-            // console.log(STORE[currentQuestion].question);
-            // console.log(answerOptions);
         } else {
-            currentQuestion = 0;
             $('.questionBox').hide();
-            // finalScore();
+            finalScore();
             $('.questionBox').text(10);
         }
+        // console.log(currentQuestion); //testing code delete later
     };
 
 
-
-
-
     // function to listen click for startButton and hide welcome page and show questionbox
-
-    $('.startButton').on('click', function (event) {
+    
+    $('.startQuiz').on('click', '.startButton', function (event) {
         $('.startQuiz').hide();
         $('.numberOfQuestions').text(1);
         $('.questionBox').show();
-        //$('.questionBox').append
         generateQuestions();
     }
     )
@@ -177,17 +166,6 @@ $(document).ready(function () {
     })
 
 
-    //    function reStartpage() {
-    //         if (the selected answer is === correctAnswer) {
-    //             increment score by one
-    //         }else{
-    //             do nothing
-    //         }
-    //        }
-    function updateScore() {
-        score++;
-        $('.score').text(score);
-    }
 
 
     //next button 
@@ -199,52 +177,77 @@ $(document).ready(function () {
         $('.questionBox').show();
         currentQuestion++;
         generateQuestions();
-        
+
     })
+
+
+    //update Score function 
+    function updateScore() {
+        score++;
+        $('.score').text(score);
+    }
+
+
+    //function to show final score with html text
+    function finalScore() {
+        $('.score').show();
+        return $('.finalResultBox').html(`<h3>You've got ${score} / 10</h3><br>`
+            + '<button type="submit" class="reStart">Restart</button></form>');
+    };
+
 
 
     //feedback answer if user select correct answer show 'Correct' else show feedbackbox 
     //with text Wrong and correct answer with facts
     function fbForAnswer(input) {
-        let feedbackAnswer = STORE[currentQuestion].correctAnswer;
 
-        //  if ('STORE[currentQuestion - 1].correctAnswer', correctAnswer
+        let feedbackAnswer = STORE[currentQuestion].correctAnswer;
         if (feedbackAnswer === $("input[name='ans']:checked")[0].value) {
             $('.feedbackBox').html(
                 `<h3>Correct!</h3> <br><button type="submit" class="nextButton">Next</button></form>`
             );
             updateScore();
-            generateQuestions();
-            showRestartView();
-
 
         } else {
             $('.feedbackBox').html(
                 `<h3>Wrong!</h3><br>
                 ${STORE[currentQuestion].facts} <br><button type="submit" class="nextButton">Next</button></form>`);
-            generateQuestions();
-            showRestartView();
-            }
+        }
+        showRestartView();
     };
-
-    //Restart button
-    $('.finalResultBox').html(`<h4> You've Got ${updateScore}</h4> <br>
-        <form id="reStart">
-        + <button type="submit" class="reStart">Restart</button></form>`);
 
 
     //user comes to the last question 10/10 then show finalResultBox 
     function showRestartView() {
         $('.feedbackBox').on('click', '.nextButton', (event) => {
-            if (currentQuestion === numbersOfQuestions) {
-                $('.finalResultBox').show();
+            if (currentQuestion === numbersOfQuestions - 1) {
                 $('.feedbackBox').hide();
+                $('.finalResultBox').show();
             }
         });
     }
 
 
+    function resetScores() {
+        score = 0;
+        numbersOfQuestions = 0;
+        $('.score').text(0);
+        $('.questionBox').text(0);
+    }
+
+    //function to restart the quiz 
+    // function restartQuiz() {
+   
+    $('.finalResultBox').on('click', function (event) {
+        //event.preventDefault();
+        resetScores();
+        $('.startQuiz').show();
+        $('.finalResultBox').hide();
+
+    });
+    
 
 
-})
+
+
 
