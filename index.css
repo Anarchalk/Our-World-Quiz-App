@@ -1,6 +1,6 @@
 body {
-    background-color: #f9f9eb;
-    font-family:'Mali', cursive; 
+    background-color: #3B3F45;
+    font-family:'Mali', cursive;    
 }
 
 * {
@@ -14,7 +14,7 @@ body {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 0;
-    color: #030954;
+    color:#fff;
 }
 
 .header li {
@@ -25,7 +25,7 @@ body {
 }
 
 .askIt {
-    color: #023b0a;
+    color: #fff;
     font-weight: bold;
 
 }
@@ -34,13 +34,15 @@ body {
     justify-content: center;
     align-items: flex-end;
     align-content: center;
-    width: 600px;
-    height: 400px;
-    border: 5px solid #030954;
+    width: 700px;
+    height: 450px;
+    border: 3px solid #e5e5fc;
     padding: 10px;
+    box-shadow: rgb(234, 238, 247);
+    box-shadow: 15em;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 1.3em;
+    border-radius: 1em;
 }
 
 .startQuiz {
@@ -49,48 +51,82 @@ body {
   justify-content: space-between;
   text-align: center;
   margin: auto;
-  padding: 5px;
+  padding: 50px;
   width:100%;
   height:100%;
   border: 4px shadow #0308549c;    
-  background-color:#03085438;
+  background-color: #f4d03f;
+  color:#fff;
   border-radius: 1.3em;
-  color:white;
+  columns: #3b3f45;
 
 }
 
+.startQuiz>h2 {
+  font-size: 26px;
+  font-weight:strong;
+  color:rgb(21, 94, 21);
+
+}
 .startButton {
   padding:10px 20px;
-  margin-top: 1em;
+  margin-top: 8em;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  background-color:rgb(25, 158, 53);
+  background-color: #333850;
   border-radius: 0.2em;
   color: white;
   font-size: 1.3em;
   font-weight: 800;
 }
 
-.startButton:hover {background-color: #3d8840}
-
+.startButton:hover {background-color: #457549}
 .startButton:active {
-  background-color: #8dbe8f;
-  box-shadow: 0 3px #666;
+  background-color: #789e79;
+  box-shadow: 0 3px rgb(30, 43, 33);
   transform: translateY(4px);
 }
+
 .nextButton, .reStart, .check {
-  background-color: rgb(34, 37, 51);
+  background-color: #333850;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 14px 28px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  border-radius:0.2em;
+  font-size: 18px;
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right:auto;
   cursor: pointer;
 }
+
+.nextButton:hover {background-color: #c09bc9}
+.nextButton:active {
+  background-color: #304166;
+  box-shadow: 0 3px rgb(246, 225, 253);
+  transform: translateY(4px);
+}
+
+
+.reStart:hover {background-color: #c09bc9}
+.reStart:active {
+  background-color: #304166;
+  box-shadow: 0 3px rgb(246, 225, 253);
+  transform: translateY(4px);
+}
+
+
+.check:hover {background-color: #c09bc9}
+.check:active {
+  background-color: #304166;
+  box-shadow: 0 3px rgb(246, 225, 253);
+  transform: translateY(4px);
+}
+
 
 .questionBox {
   flex-direction: column;
@@ -98,14 +134,20 @@ body {
   justify-content: space-between;
   text-align: center;
   margin: auto;
-  padding: 5px;
+  padding: 30px;
+  border-radius: 1em;
+  box-shadow: 2px #fff;
   width:100%;
   height:100%;
+  font-size: 1.2em;
   display:none;
-  background-color: rgb(96, 96, 129);
-  color:whitesmoke
+  background-color: rgb(107, 94, 109);
+  color:#fff;
 }
 
+#question> p {
+  text-transform: uppercase;
+}
 
 label {
     display: block;
@@ -119,12 +161,14 @@ label {
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    background-color: rgb(149, 104, 159);
+    background-color: rgb(107, 94, 109);
     margin: auto;
-    padding: 5px;
+    border-radius: 1em;
+    padding: 30px;
     width:100%;
     height:100%;
     display:none;
+    font-size: 1.2em;
     color:rgb(248, 248, 219);
   }
 
@@ -133,10 +177,14 @@ label {
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    background-color: rgb(248, 238, 104);
+    background-color: rgb(107, 94, 109);
+    border-radius: 1em;
     margin: auto;
-    padding: 5px;
+    padding: 50px;
     width:100%;
     height:100%;
+    font-size: 22px;
+    color: white;
+    font-weight: 800;
     display:none;
   }
