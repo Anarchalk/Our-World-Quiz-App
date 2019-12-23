@@ -6,7 +6,7 @@ let STORE = [
             'There are 8 continents',
             'There are 6 continents',
             'There are 7 continents',
-            'There are 5 continents including Euroasia, Africa, Australia, America, Antarctica '
+            'There are 5 continents'
         ],
         correctAnswer: 'There are 7 continents',
         facts: 'There are 7 continents - Asia, Oceana, Africa, Europe, Antarctica, North America, South America.'

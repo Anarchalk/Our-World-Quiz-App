@@ -1,6 +1,7 @@
 body {
     background-color: #3B3F45;
-    font-family:'Mali', cursive;    
+    font-family:'Mali', cursive; 
+   
 }
 
 * {
@@ -15,6 +16,7 @@ body {
     margin-top: 30px;
     margin-bottom: 0;
     color:#fff;
+    
 }
 
 .header li {
@@ -97,7 +99,7 @@ body {
   text-decoration: none;
   display: inline-block;
   border-radius:0.2em;
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 5em;
   margin-left: auto;
   margin-right:auto;
@@ -149,12 +151,6 @@ body {
   text-transform: uppercase;
 }
 
-label {
-    display: block;
-    margin-bottom: 0.5em;
-    padding: 0.5em;
-    cursor: pointer;
-  }
   
   .feedbackBox {
     flex-direction: column;
@@ -187,4 +183,34 @@ label {
     color: white;
     font-weight: 800;
     display:none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .globus {
+      width: 80%;
+      font-size: 1em;
+    }
+
+    .questionBox, .feedbackBox, .startQuiz { 
+     font-size: 0.9em;
+     } 
+
+     .finalResultBox {
+       font-size:1em;
+     }
+
+    .nextButton, .startButton, .check, .reStart {
+      font-size:0.9em;
+      margin-top:2em;
+    }
+
+    h1 {
+      font-size:1em;
+    }
+
+    .header li {
+      font-size:1em;
+    }
+
+    
   }
