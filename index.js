@@ -156,17 +156,18 @@ $('.startQuiz').on('click', '.startButton', function (event) {
 
 //on click show feedback box 
 $('.questionBox').on('click', '.check', function () {
+    event.preventDefault();
     let inputVal = $('input[name=ans]:checked').val();
     //console.log('Value is ' + inputVal);
     let selectedOption = $('input[name=ans]:checked').val();
     if (!selectedOption) {
         alert("Select an option");
         return;
-    }else{ 
-    fbForAnswer(inputVal);
-    $('.questionBox').hide();
-    $('.feedbackBox').show();
-    generateQuestions();
+    } else {
+        fbForAnswer(inputVal);
+        $('.questionBox').hide();
+        $('.feedbackBox').show();
+        generateQuestions();
     }
 })
 
@@ -228,6 +229,7 @@ function showRestartView() {
         if (currentQuestion === numbersOfQuestions - 1) {
             $('.feedbackBox').hide();
             $('.finalResultBox').show();
+    
         }
     });
 }
@@ -244,13 +246,18 @@ function resetScores() {
 // function restartQuiz() {
 
 $('.finalResultBox').on('click', function (event) {
-    //event.preventDefault();
+    event.preventDefault();
     resetScores();
     $('.startQuiz').show();
     $('.finalResultBox').hide();
 
 });
 
+function handleQuizApp() {
+    generateQuestions();
+    fbForAnswer();
+    showRestartView();
+}
 
 
 
