@@ -1,7 +1,7 @@
 
 let STORE = [
     {
-        question: 'How many continents are there in the world?',
+        question: 'How many continents are there?',
         answers: [
             'There are 8 continents',
             'There are 6 continents',
@@ -45,7 +45,7 @@ let STORE = [
         facts: ' Lake Baikal, the largest and deepest freshwater lake in the world, is located in Russia. Baikal holds up to approximately 1/5 of fresh water in the world.'
     },
     {
-        question: 'Which country took the top spot as the happiest country in the world in 2019?',
+        question: 'Which country was declared the happiest country in the world in 2019?',
         answers: [
             'Finland',
             'Norway',
@@ -100,7 +100,7 @@ let STORE = [
         facts: 'All 6 Matriarchal Societies in the answer, have Been Thriving With Women at the Helm for Centuries'
     },
     {
-        question: 'Which country has no river in the world?',
+        question: 'Which country does not have a river?',
         answers: [
             'United Arabia Emirate',
             'Saudi Arabia',
@@ -128,9 +128,10 @@ function generateQuestions() {
             + '<p>'
             + STORE[currentQuestion].question
             + '</p><br>'
-            + STORE[currentQuestion].answers.map((answer) => {
-                return `<input type="radio" name="ans" value="${answer}"> ${answer}<br>`
+            + STORE[currentQuestion].answers.map((answer) => { 
+                return `<input id="tovch" type="radio" name="ans" value="${answer}"> ${answer}<br>`
             }).join('')
+            
             + '<button type="button" class="check">Submit</button></form>');
         $('.numberOfQuestions').text(currentQuestion + 1);
     } else {
@@ -170,8 +171,6 @@ $('.questionBox').on('click', '.check', function () {
         generateQuestions();
     }
 })
-
-
 
 
 //next button 
